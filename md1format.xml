@@ -1,0 +1,13 @@
+<SerializationMap>
+	<DataItem class = "FSharpBinding.FSharpCompilerParameters">
+		<LiteralProperty name="compiler" value="fcs" />
+		<ItemProperty member="warnings" name = "warnings"/>
+		<ItemProperty member="noWarnings" name="nowarn" defaultValue=""/>
+		<ItemProperty member="optimize" name="optimize"/>
+		<ItemProperty member="definesymbols" name="definesymbols" defaultValue="" />
+		<ItemProperty member="generateXmlDocumentation" name="generatexmldocumentation"/>
+		<ItemProperty member="win32Resource" name="win32Resource" defaultValue="" />
+		<ItemProperty member="codePage" name="codepage" defaultValue="0"/>
+		<ItemProperty member="additionalArgs" name="additionalargs" defaultValue="" />
+	</DataItem>
+</SerializationMap>

@@ -1,0 +1,16 @@
+<Combine name="FSharpBinding" fileversion="2.0">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="CombineConfiguration">
+      <Entry build="True" name="MonoDevelop.FSharpBinding" configuration="Debug" />
+    </Configuration>
+    <Configuration name="Release" ctype="CombineConfiguration">
+      <Entry build="True" name="MonoDevelop.FSharpBinding" configuration="Release" />
+    </Configuration>
+  </Configurations>
+  <StartMode startupentry="MonoDevelop.FSharpBinding" single="True">
+    <Execute type="None" entry="MonoDevelop.FSharpBinding" />
+  </StartMode>
+  <Entries>
+    <Entry filename="FSharpBinding.mdp" />
+  </Entries>
+</Combine>

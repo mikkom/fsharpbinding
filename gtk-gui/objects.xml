@@ -1,0 +1,6 @@
+<objects attr-sync="on">
+  <object type="FSharpBinding.CompilerOptionsPanelWidget" palette-category="FSharpBinding" allow-children="false" base-type="Gtk.Bin">
+    <itemgroups />
+    <signals />
+  </object>
+</objects>

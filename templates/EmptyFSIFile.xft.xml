@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<Template Originator="Art Wild" Language="F#" Created="8/09/2008" LastModified="8/09/2008">
+	
+	<TemplateConfiguration>
+		<_Name>Empty Interface File</_Name>
+		<Icon>md-text-file-icon</Icon>
+		<_Category>General</_Category>
+		<LanguageName>F#</LanguageName>
+		<_Description>Creates an empty F# interface file.</_Description>
+	</TemplateConfiguration>
+	
+	<TemplateFiles>
+		<File DefaultExtension=".fsi" DefaultName="EmptyFSIFile" AddStandardHeader="True">
+<![CDATA[
+
+// Sample F# Interface File  
+
+// Signatures can specify the namespace and/or module of the constructs defined.
+
+module MyOrganisation.MyLibrary.MyLibraryModule
+
+// Signature files may open namespaces.  The namespaces Microsoft.FSharp
+// and Microsoft.FSharp.Compatibility.OCaml are implicitly opened.
+
+open System
+
+// Signatures for functions and simple values are given using 'val':
+
+val myFunction : int -> int -> int
+val myInteger  : int 
+
+// Modules are simply nested namespaces, and are similar to classes that
+// only contain static members.  They are specified as follows:
+
+module MyModule : begin
+  type sting
+  val someStinger : string -> sting 
+  val someSting : sting
+end
+
+]]></File>
+	</TemplateFiles>
+	
+	<FileOptions/>
+	
+</Template>
