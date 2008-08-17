@@ -10,6 +10,7 @@
   <StartMode startupentry="MonoDevelop.FSharpBinding" single="True">
     <Execute type="None" entry="MonoDevelop.FSharpBinding" />
   </StartMode>
+  <MonoDevelop.ChangeLogAddIn.ChangeLogInfo policy="OneChangeLogInProjectRootDirectory" />
   <Entries>
     <Entry filename="FSharpBinding.mdp" />
   </Entries>

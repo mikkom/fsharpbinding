@@ -1,7 +1,7 @@
 <Project name="MonoDevelop.FSharpBinding" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
   <Configurations active="Debug">
     <Configuration name="Debug" ctype="DotNetProjectConfiguration">
-      <Output directory="build" assemblyKeyFile="/mnt/hgfs/Dev/CSharpBinding/." assembly="MonoDevelop.FSharpBinding" />
+      <Output directory="../MonoDevelop/main/build/AddIns/BackendBindings" assemblyKeyFile="/mnt/hgfs/Dev/CSharpBinding/." assembly="MonoDevelop.FSharpBinding" />
       <Build debugmode="True" target="Library" />
       <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
       <EnvironmentVariables />
@@ -18,20 +18,13 @@
     <File name="templates/ConsoleProject.xpt.xml" subtype="Code" buildaction="EmbedAsResource" />
     <File name="templates/EmptyFSharpFile.xft.xml" subtype="Code" buildaction="EmbedAsResource" />
     <File name="templates/EmptyProject.xpt.xml" subtype="Code" buildaction="EmbedAsResource" />
-    
     <File name="Gui/CodeGenerationPanel.cs" subtype="Code" buildaction="Compile" />
     <File name="Project/FSharpCompilerParameters.cs" subtype="Code" buildaction="Compile" />
     <File name="FSharpLanguageBinding.cs" subtype="Code" buildaction="Compile" />
     <File name="FSharpBindingCompilerManager.cs" subtype="Code" buildaction="Compile" />
-    <File name="FSharpEnhancedCodeProvider.cs" subtype="Code" buildaction="Nothing" />
     <File name="FSharpBinding.addin.xml" subtype="Code" buildaction="EmbedAsResource" />
     <File name="gtk-gui/gui.stetic" subtype="Code" buildaction="EmbedAsResource" />
     <File name="gtk-gui/generated.cs" subtype="Code" buildaction="Compile" />
-    <File name="Gui/FSharpParameterDataProvider.cs" subtype="Code" buildaction="Compile" />
-    <File name="Gui/OverrideCompletionData.cs" subtype="Code" buildaction="Compile" />
-    <File name="FormattingStrategy/FSharpIndentEngine.cs" subtype="Code" buildaction="Compile" />
-    <File name="FormattingStrategy/FSharpIndentEngineStack.cs" subtype="Code" buildaction="Compile" />
-    <File name="FSharpAmbience.cs" subtype="Code" buildaction="Compile" />    
     <File name="gtk-gui/objects.xml" subtype="Code" buildaction="EmbedAsResource" />
     <File name="Gui/CompilerOptionsPanelWidget.cs" subtype="Code" buildaction="Compile" />
     <File name="md1format.xml" subtype="Code" buildaction="EmbedAsResource" />
@@ -42,6 +35,10 @@
     <File name="gtk-gui/FSharpBinding.GlobalOptionsPanelWidget.cs" subtype="Code" buildaction="Compile" />
     <File name="icons/FSharp.FileIcon" subtype="Code" buildaction="EmbedAsResource" />
     <File name="templates/EmptyFSIFile.xft.xml" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="Commands" subtype="Directory" buildaction="Compile" />
+    <File name="Commands/FSharpBindingNodeExtension.cs" subtype="Code" buildaction="Compile" />
+    <File name="icons/arrow_down.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="icons/arrow_up.png" subtype="Code" buildaction="EmbedAsResource" />
   </Contents>
   <References>
     <ProjectReference type="Gac" localcopy="False" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />

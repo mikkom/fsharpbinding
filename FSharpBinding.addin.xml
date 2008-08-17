@@ -27,6 +27,12 @@
 			/>
 	</Extension>
 	
+	<Extension path = "/MonoDevelop/Core/StockIcons">
+		<StockIcon stockid = "md-fsharp-file" resource = "FSharp.FileIcon" />
+		<StockIcon stockid = "md-fsharp-up" resource = "arrow_up.png" />
+		<StockIcon stockid = "md-fsharp-down" resource = "arrow_down.png" />
+	</Extension>
+	
 	<Extension path = "/MonoDevelop/Ide/FileFilters">
 		<FileFilter id = "FSharp"
 		            insertbefore="AllFiles"
@@ -36,11 +42,6 @@
 		            insertbefore="AllFiles"
 		            _label = "F# Interface Files"
 		            extensions = "*.fsi"/>			    
-	</Extension>
-
-	<Extension path = "/MonoDevelop/ProjectModel/Ambiences">
-		<Class id    = "F#"
-		       class = "FSharpBinding.FSharpAmbience"/>
 	</Extension>
 
 	<Extension path = "/MonoDevelop/Ide/FileTemplates">
@@ -76,18 +77,34 @@
 	<Extension path = "/MonoDevelop/ProjectModel/SerializableClasses">
 		<DataType class = "FSharpBinding.FSharpCompilerParameters" />
 	</Extension>
-
-	<!--Extension path = "/MonoDevelop/Ide/TextEditorExtensions">
-		<Class class = "FSharpBinding.FSharpTextEditorExtension" />
-	</Extension-->
+	
+	<Extension path = "/MonoDevelop/Ide/Pads/ProjectPad">
+	    <PadOption id = "ShowFileOrder" _label = "Show order of project files" defaultValue = "False" />
+		<NodeBuilder id = "FSharpBindingNodeExtension" class = "FSharpBinding.FSharpBindingNodeExtension"/>
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/Commands">
+		<Category _name = "Project Control" id = "ProjectControl">
+        	<Command id = "FSharpBinding.Commands.MoveUp" 
+        		_label = "_Move up"
+        		icon = "md-fsharp-up"
+        		description = "Move up file inside project."/>
+        	<Command id = "FSharpBinding.Commands.MoveDown" 
+        		_label = "_Move down"
+        		icon = "md-fsharp-down"
+        		description = "Move down file inside project."/>
+		</Category>
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/ContextMenu/ProjectPad/ProjectFile">	
+	    <SeparatorItem />	
+		<CommandItem id = "FSharpBinding.Commands.MoveUp"/>
+	    <CommandItem id = "FSharpBinding.Commands.MoveDown" />
+	</Extension>
 	
 	<Extension path = "/MonoDevelop/ProjectModel/MD1SerializationMaps">
 		<SerializationMap resource="md1format.xml" />
-	</Extension>	
-	
-	<Extension path = "/MonoDevelop/Core/StockIcons">
-		<StockIcon stockid = "md-fsharp-file" resource = "FSharp.FileIcon" />
-	</Extension>
+	</Extension>		
 	
 	<Extension path = "/MonoDevelop/Core/MimeTypes">
 		<MimeType id="text/x-fsharp" _description="F# source code" icon="md-fsharp-file" isText="true">
