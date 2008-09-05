@@ -65,9 +65,7 @@ namespace FSharpBinding
 			ArrayList gacRoots = new ArrayList ();
             
             AddOption(writer, "--fullpaths");
-
-            if (FSharpLanguageBinding.Properties.compilationProgress)
-                AddOption(writer, "--progress");
+            AddOption(writer, "--utf8output");
                     
 			if (references != null) {
 				foreach (ProjectReference lib in references) {
@@ -83,9 +81,6 @@ namespace FSharpBinding
 								monitor.ReportWarning (msg);
 								continue;
 							}
-//							if (pkg.IsCorePackage) {
-//								AddOption(writer,"-r \"" + Path.GetFileName (fileName) + "\"");
-//							} 
                             else if (pkg.IsInternalPackage) {
 								AddOption(writer,"-r \"" + fileName + "\"");
 							} 
@@ -101,7 +96,7 @@ namespace FSharpBinding
 			}
             
             string exe = configuration.CompiledOutputName;
-			AddOption(writer,"-o \"" + exe + '"');
+			AddOption(writer,"--out \"" + exe + '"');
 				
 			if (configuration.SignAssembly) {
 				if (File.Exists (configuration.AssemblyKeyFile))
@@ -109,13 +104,11 @@ namespace FSharpBinding
 			}
 			
 			if (configuration.DebugMode) {
-				AddOption(writer,"-g");				
+				AddOption(writer,"--debug");				
 			}
             else
 				if (compilerparameters.Optimize)
-                    AddOption(writer,"-O");
-                else
-                    AddOption(writer,"-Ooff");
+                    AddOption(writer,"--optimize");
 			
 			if (compilerparameters.CodePage != 0) {
 				AddOption(writer,"--codepage " + compilerparameters.CodePage);
@@ -131,16 +124,16 @@ namespace FSharpBinding
 			
 			switch (configuration.CompileTarget) {
 				case CompileTarget.Exe:
-					AddOption(writer,"--target-exe");
+					AddOption(writer,"--target exe");
 					break;
 				case CompileTarget.WinExe:
-					AddOption(writer,"--target-winexe");
+					AddOption(writer,"--target winexe");
 					break;
 				case CompileTarget.Library:
-					AddOption(writer,"--target-dll");
+					AddOption(writer,"--target library");
 					break;
                 case CompileTarget.Module:
-					AddOption(writer,"--target-module");
+					AddOption(writer,"--target module");
 					break;
 			}
             
@@ -237,10 +230,8 @@ namespace FSharpBinding
             else {
     			switch (version) {
     			case ClrVersion.Net_1_1:
-    				fsc = "fscp10.exe";
-    				break;
     			case ClrVersion.Net_2_0:
-    				fsc = "fscp.exe";
+    				fsc = "fsc.exe";
     				break;
     			default:                
     				string message = "Cannot handle unknown runtime version ClrVersion.'" + version.ToString () + "'.";

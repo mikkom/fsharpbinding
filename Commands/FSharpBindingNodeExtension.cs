@@ -30,7 +30,8 @@ using MonoDevelop.Ide.Gui;
 using MonoDevelop.Ide.Gui.Pads;
 using MonoDevelop.Ide.Gui.Pads.ProjectPad;
 using MonoDevelop.Projects;
-using MonoDevelop.Components.Commands; 
+using MonoDevelop.Components.Commands;
+using MonoDevelop.Ide.Gui.Components;    
 
 namespace FSharpBinding
 {
@@ -42,7 +43,7 @@ namespace FSharpBinding
         
 		public override bool CanBuildNode (Type dataType)
 		{
-			return typeof(ProjectFile).IsAssignableFrom (dataType);
+			return typeof(ProjectFile).IsAssignableFrom (dataType);     
 		}
 		
 		public FSharpBindingNodeExtension ()
