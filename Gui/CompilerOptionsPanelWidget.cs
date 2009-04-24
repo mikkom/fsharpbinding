@@ -24,7 +24,6 @@ using MonoDevelop.Ide.Gui;
 using MonoDevelop.Core;
 using MonoDevelop.Core.Gui;
 using MonoDevelop.Projects;
-using MonoDevelop.Projects.Parser;
 using MonoDevelop.Projects.Text;
 using MonoDevelop.Projects.Gui.Dialogs;
 

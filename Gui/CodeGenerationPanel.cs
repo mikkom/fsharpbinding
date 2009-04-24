@@ -26,7 +26,6 @@ using MonoDevelop.Projects;
 using MonoDevelop.Projects.Gui.Dialogs;
 using MonoDevelop.Core;
 using Mono.Addins;
-using MonoDevelop.Projects.Parser;
 using MonoDevelop.Ide.Gui;
 
 using Gtk;
