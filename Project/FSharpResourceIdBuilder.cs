@@ -43,7 +43,9 @@ namespace FSharpBinding
 		public string GetDefaultResourceId (ProjectFile pf)
 		{
 			if (String.IsNullOrEmpty (pf.DependsOn) || !File.Exists (pf.DependsOn))
-				return MSBuildProjectService.GetDefaultResourceId (pf);
+			        // FIXME: Always returning null here
+				//return MSBuildProjectService.GetDefaultResourceId (pf);
+				return null;
 
 			string ns = null;
 			string classname = null;
@@ -80,7 +82,9 @@ namespace FSharpBinding
 				}
 
 				if (classname == null)
-					return MSBuildProjectService.GetDefaultResourceId (pf);
+				        // FIXME: Always returning null here
+					//return MSBuildProjectService.GetDefaultResourceId (pf);
+					return null;
 
 				string culture, extn, only_filename;
 				if (MSBuildProjectService.TrySplitResourceName (pf.RelativePath, out only_filename, out culture, out extn))
