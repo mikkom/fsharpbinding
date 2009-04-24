@@ -28,7 +28,8 @@ using System.CodeDom.Compiler;
 using System.Threading;
 
 using MonoDevelop.Projects;
-using MonoDevelop.Projects.Parser;
+using MonoDevelop.Projects.Dom;
+using MonoDevelop.Projects.Dom.Parser;
 using MonoDevelop.Projects.CodeGeneration;
 using MonoDevelop.Core;
 
@@ -59,13 +60,19 @@ namespace FSharpBinding
 			return compilerManager.CanCompile(fileName);
 		}
 		
-		public BuildResult Compile (ProjectFileCollection projectFiles, ProjectReferenceCollection references, DotNetProjectConfiguration configuration, IProgressMonitor monitor)
+		public BuildResult Compile(ProjectItemCollection items, DotNetProjectConfiguration configuration, IProgressMonitor monitor)
 		{
 			Debug.Assert(compilerManager != null);
-			return compilerManager.Compile (projectFiles, references, configuration, monitor);
+			return compilerManager.Compile(items, configuration, monitor);
 		}
-		
-		public ICloneable CreateCompilationParameters (XmlElement projectOptions)
+
+		public ProjectParameters CreateProjectParameters(XmlElement projectOptions)
+		{
+		  // FIXME: Dummy implementation
+		  return new ProjectParameters();
+		}
+
+		public ConfigurationParameters CreateCompilationParameters (XmlElement projectOptions)
 		{
 			FSharpCompilerParameters pars = new FSharpCompilerParameters ();
 			if (projectOptions != null) {
@@ -92,8 +99,8 @@ namespace FSharpBinding
 		public string GetFileName (string baseName)
 		{
 			return baseName + ".fs";
-		}		
-			
+		}
+		
 		public IParser Parser {
 			get { return null;	 }
 		}

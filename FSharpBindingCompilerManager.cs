@@ -53,18 +53,39 @@ namespace FSharpBinding
         }
         
 
-		public BuildResult Compile (ProjectFileCollection projectFiles, ProjectReferenceCollection references, DotNetProjectConfiguration configuration, IProgressMonitor monitor)
-		{
+		public BuildResult Compile (ProjectItemCollection items, DotNetProjectConfiguration configuration, IProgressMonitor monitor)
+		{	
 			FSharpCompilerParameters compilerparameters = (FSharpCompilerParameters) configuration.CompilationParameters;
 			if (compilerparameters == null) compilerparameters = new FSharpCompilerParameters ();
-			
-            	string responseFileName = Path.GetTempFileName();
+	
+            string responseFileName = Path.GetTempFileName();
 			StringWriter writer = new StringWriter ();
 			ArrayList gacRoots = new ArrayList ();
             
             AddOption(writer, "--fullpaths");
             AddOption(writer, "--utf8output");
                     
+			ProjectFileCollection projectFiles = new ProjectFileCollection();
+			ProjectReferenceCollection references = new ProjectReferenceCollection();
+			// FIXME: Plain guesswork
+			foreach(ProjectItem item in items)
+			{
+				ProjectFile file = null;
+				ProjectReference reference = null;
+				if((file = item as ProjectFile) != null)
+				{
+					projectFiles.Add(file);
+				}
+				else if((reference = item as ProjectReference) != null)
+				{
+					references.Add(reference);
+				}
+				else
+				{
+					// Nada...
+				}
+			}
+			
 			if (references != null) {
 				foreach (ProjectReference lib in references) {
 					if ((lib.ReferenceType == ReferenceType.Project) &&
@@ -73,7 +94,14 @@ namespace FSharpBinding
 					foreach (string fileName in lib.GetReferencedFileNames (configuration.Id)) {
 						switch (lib.ReferenceType) {
 						case ReferenceType.Gac:
-							SystemPackage pkg = Runtime.SystemAssemblyService.GetPackageFromFullName (lib.Reference);
+							SystemPackage[] pkgs = Runtime.SystemAssemblyService.GetPackagesFromFullName(lib.Reference);
+							SystemPackage pkg = null;
+							if(pkgs != null && pkgs.Length > 0)
+							{
+								// FIXME: Now handling only one package
+								pkg = pkgs[0];
+							}
+							
 							if (pkg == null) {
 								string msg = String.Format (GettextCatalog.GetString ("{0} could not be found or is invalid."), lib.Reference);
 								monitor.ReportWarning (msg);
