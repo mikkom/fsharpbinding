@@ -2,13 +2,14 @@
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
-    <target-gtk-version>2.12.0</target-gtk-version>
+    <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="../../monodevelop/main/build/bin/MonoDevelop.Components.dll" />
-    <widget-library name="../../monodevelop/main/build/bin/MonoDevelop.Ide.dll" />
-    <widget-library name="../../monodevelop/main/build/bin/MonoDevelop.Projects.Gui.dll" />
-    <widget-library name="../build/MonoDevelop.FSharpBinding.dll" internal="true" />
+    <widget-library name="MonoDevelop.Components, Version=2.0.0.0, Culture=neutral" />
+    <widget-library name="MonoDevelop.Core.Gui, Version=2.0.0.0, Culture=neutral" />
+    <widget-library name="MonoDevelop.Projects.Gui, Version=2.0.0.0, Culture=neutral" />
+    <widget-library name="MonoDevelop.Ide, Version=2.0.0.0, Culture=neutral" />
+    <widget-library name="../../MonoDevelop/main/build/AddIns/BackendBindings/MonoDevelop.FSharpBinding.dll" internal="true" />
   </import>
   <widget class="Gtk.Bin" id="FSharpBinding.CodeGenerationPanelWidget" design-size="365 448">
     <property name="MemberName" />
@@ -39,7 +40,6 @@
               <widget class="Gtk.Label" id="label81">
                 <property name="MemberName" />
                 <property name="WidthRequest">18</property>
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -176,7 +176,6 @@
               <widget class="Gtk.Label" id="label73">
                 <property name="MemberName" />
                 <property name="WidthRequest">18</property>
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -297,7 +296,6 @@
               <widget class="Gtk.Label" id="label74">
                 <property name="MemberName" />
                 <property name="WidthRequest">18</property>
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -381,7 +379,6 @@
               <widget class="Gtk.Label" id="label76">
                 <property name="MemberName" />
                 <property name="WidthRequest">18</property>
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -528,7 +525,6 @@
           <widget class="Gtk.Label" id="label75">
             <property name="MemberName" />
             <property name="WidthRequest">18</property>
-            <property name="LabelProp" translatable="yes" />
           </widget>
           <packing>
             <property name="PackType">End</property>
@@ -544,7 +540,6 @@
               <widget class="Gtk.Label" id="label74">
                 <property name="MemberName" />
                 <property name="WidthRequest">18</property>
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -593,7 +588,6 @@
               <widget class="Gtk.Label" id="label100">
                 <property name="MemberName" />
                 <property name="WidthRequest">18</property>
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -605,7 +599,6 @@
             <child>
               <widget class="Gtk.Table" id="table9">
                 <property name="MemberName" />
-                <property name="NRows">1</property>
                 <property name="NColumns">2</property>
                 <property name="RowSpacing">6</property>
                 <property name="ColumnSpacing">6</property>
@@ -665,7 +658,6 @@
             <child>
               <widget class="Gtk.Label" id="label2">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes" />
               </widget>
               <packing>
                 <property name="Position">0</property>
