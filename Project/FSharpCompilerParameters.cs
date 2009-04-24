@@ -30,7 +30,7 @@ namespace FSharpBinding
 	/// <summary>
 	/// This class handles project specific compiler parameters
 	/// </summary>
-	public class FSharpCompilerParameters: ICloneable
+	public class FSharpCompilerParameters: ConfigurationParameters
 	{
 		// Configuration parameters
 		
@@ -61,11 +61,6 @@ namespace FSharpBinding
 		[ItemProperty ("TreatWarningsAsErrors", DefaultValue = false)]
 		bool treatWarningsAsErrors;
 	
-		public object Clone ()
-		{
-			return MemberwiseClone ();
-		}
-		
 		public int CodePage {
 			get {
 				return codePage;
