@@ -78,6 +78,7 @@ namespace FSharpBinding {
             w2.Fill = false;
             // Container child hbox5.Gtk.Box+BoxChild
             this.vbox2 = new Gtk.VBox();
+            this.vbox2.Name = "vbox2";
             this.vbox2.Spacing = 6;
             // Container child vbox2.Gtk.Box+BoxChild
             this.table7 = new Gtk.Table(((uint)(2)), ((uint)(2)), false);
